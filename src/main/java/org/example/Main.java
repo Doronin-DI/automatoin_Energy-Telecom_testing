@@ -21,6 +21,13 @@ public class Main {
         driver.get("http://www.energy-telecom.portnov.com/qa/");
 
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); //задержка исполнения по времени
+
+        driver.get("http://www.energy-telecom.portnov.com/qa/");
+
+        // xpath для поиска элементов в коде страницы
+
+
         WebElement firstName= driver.findElement(By.xpath("//input[@name='firstName']"));
         WebElement lastName= driver.findElement(By.xpath("//input[@name='lastName']"));
         WebElement address= driver.findElement(By.xpath("//input[@name='address']"));
@@ -35,6 +42,10 @@ public class Main {
         WebElement refferedBy = driver.findElement(By.xpath("//input[@name='refferedBy']"));
         WebElement submit= driver.findElement(By.xpath("//input[@name='submitData']"));
 
+
+        // набор данных для заполнения полей
+
+
         firstName.sendKeys("Dmitrii");
         lastName.sendKeys("Doronin");
         address.sendKeys("Elm, 32");
@@ -46,9 +57,16 @@ public class Main {
         phone3.sendKeys("2525");
         refferedBy.sendKeys("Obama B");
 
+
+        // команды нажатия кнопок
+
         contact.click();
         state.click();
         submit.click();
+
+
+        // проверка успешной отправки формы
+
 
         WebElement finish= driver.findElement(By.xpath("//font['Thank you for your participation!']"));
 
