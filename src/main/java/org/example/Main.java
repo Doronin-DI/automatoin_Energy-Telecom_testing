@@ -20,8 +20,9 @@ public class Main {
 
         driver.get("http://www.energy-telecom.portnov.com/qa/");
 
+        //задержка исполнения по времени
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); //задержка исполнения по времени
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
         driver.get("http://www.energy-telecom.portnov.com/qa/");
 
@@ -73,6 +74,8 @@ public class Main {
             System.out.println(finish.getText());
 
             driver.navigate().back();
+
+        // прокрутка страницы вверх
 
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("window.scrollBy(0,-1950)", "");
